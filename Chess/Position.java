@@ -1,4 +1,7 @@
-package JavaProjects;
+package JavaProjects.Chess;
+
+import JavaProjects.Chess.Piece;
+import JavaProjects.Chess.PieceArray;
 
 public class Position {
     int x;
@@ -11,7 +14,7 @@ public class Position {
         }
     }
 
-    Piece pieceAt( int x , int y  , Piece[][] board ){
+    Piece pieceAt(int x , int y  , Piece[][] board ){
 
         return board[x][y];
     }
