@@ -1,6 +1,6 @@
 package JavaProjects.Chess;
 
-public class Piece {
+public abstract class Piece {
 
     Color color;
     Pieces type ;
@@ -14,14 +14,7 @@ public class Piece {
         this.currentPosition = currentPosition;
     }
 
-    boolean legalMove() {
-        return false;
-    }
-
-    Piece pieceOnPath(){
-        return this;
-    }
-
+    abstract boolean legalMove(Position p);
 
 }
 
@@ -30,8 +23,13 @@ class Pawn extends Piece{
     Position initial_position;
     public Pawn(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
+        initial_position = currentPosition;
     }
 
+    @Override
+    boolean legalMove(Position p) {
+        return ValidMoves.validPawn(this ,p);
+    }
 }
 
 class Bishop extends Piece{
@@ -66,9 +64,11 @@ class Queen extends Piece{
 }
 
 class Null extends Piece{
-    public Null(Color color, Pieces type, boolean alive, Position currentPosition) {
-        super(color, type, alive, currentPosition);
+     Null(Position currentPosition) {
+        super(Color.NULL, Pieces.NULL, true, currentPosition);
     }
+
+
 }
 
 
