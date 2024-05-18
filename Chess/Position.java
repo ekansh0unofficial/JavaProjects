@@ -18,8 +18,26 @@ public class Position {
 
         return board[x][y];
     }
-    Piece pieceAt(int x , int y){
-       return pieceAt(x , y , PieceArray.chessBoard);
+
+    Piece pieceAt(){
+       return pieceAt(this.x , this.y , PieceArray.chessBoard);
     }
+
+    boolean isEqual(Position p) {
+        if (p.x == this.x && p.y == this.y) {
+            return true;
+        }
+        return false;
+    }
+
+    boolean pieceExist(){
+        if(pieceAt().type == Pieces.NULL){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
 }
 
