@@ -36,11 +36,20 @@ class Bishop extends Piece{
     public Bishop(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
     }
+
+    boolean legalMove(Position p){
+       return ValidMoves.validBishop(this , p );
+    }
 }
 
 class Knight extends Piece{
     public Knight(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
+    }
+
+    @Override
+    boolean legalMove(Position p) {
+        return ValidMoves.validKnight(this , p);
     }
 }
 
@@ -48,6 +57,11 @@ class Rook extends Piece{
 
      Rook(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
+    }
+
+    @Override
+    boolean legalMove(Position p) {
+        return ValidMoves.validRook(this , p);
     }
 }
 
@@ -61,13 +75,16 @@ class Queen extends Piece{
     public Queen(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
     }
+    @Override
+    boolean legalMove(Position p){
+        return ValidMoves.validQueen(this , p);
+    }
 }
 
 class Null extends Piece{
      Null(Position currentPosition) {
         super(Color.NULL, Pieces.NULL, true, currentPosition);
     }
-
 
 }
 
