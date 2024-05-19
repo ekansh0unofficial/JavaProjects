@@ -21,7 +21,7 @@ public class PieceArray {
 
                 for(int i = 2 ; i<6 ; i++ ){
                         for (int j = 0; j < 8; j++) {
-                                chessBoard[i][j] = new Null( Color.NULL , Pieces.NULL , true , new Position(i,j));
+                                chessBoard[i][j] = new Null(new Position(i,j));
                         }
                 }
 
