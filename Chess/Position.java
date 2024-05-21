@@ -1,8 +1,5 @@
 package JavaProjects.Chess;
 
-import JavaProjects.Chess.Piece;
-import JavaProjects.Chess.PieceArray;
-
 public class Position {
     int x;
     int y;
@@ -14,13 +11,20 @@ public class Position {
         }
     }
 
-    Piece pieceAt(int x , int y  , Piece[][] board ){
-
+    Piece getPieceFrom(int x , int y  , Piece[][] board ){
         return board[x][y];
     }
 
-    Piece pieceAt(){
-       return pieceAt(this.x , this.y , PieceArray.chessBoard);
+    Piece getPieceFrom(){
+       return getPieceFrom(this.x , this.y , PieceArray.chessBoard);
+    }
+
+    void setPieceAt(Piece p , int x , int y , Piece[][] board ){
+         board[x][y] = p;
+    }
+
+    void setPieceAt(Piece p ){
+        setPieceAt(p , this.x , this.y , PieceArray.chessBoard);
     }
 
     boolean isEqual(Position p) {
@@ -31,7 +35,7 @@ public class Position {
     }
 
     boolean pieceExist(){
-        if(pieceAt().type == Pieces.NULL){
+        if(getPieceFrom().type == Pieces.NULL){
             return false;
         }
         else{
