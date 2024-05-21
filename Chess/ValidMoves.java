@@ -18,7 +18,7 @@ public class ValidMoves {
 
                 //handles the capture scenarrio
                 if ((next.y == p.currentPosition.y + 1 || next.y == p.currentPosition.y - 1) && next.x == p.currentPosition.x + 1) {
-                    if (next.pieceAt().color == Color.WHITE) {
+                    if (next.getPieceFrom().color == Color.WHITE) {
                         return true;
                     }
                 }
@@ -38,7 +38,7 @@ public class ValidMoves {
 
                 //handles the capture scenarrio
                 if ((next.y == p.currentPosition.y + 1 || next.y == p.currentPosition.y - 1) && next.x == p.currentPosition.x - 1) {
-                    if (next.pieceAt().color == Color.BLACK) {
+                    if (next.getPieceFrom().color == Color.BLACK) {
                         return true;
                     }
                 }
@@ -96,7 +96,7 @@ public class ValidMoves {
         else{
             boolean p;
             if(!emptyBishopPath(b , next)){p = false;}
-            if(next.pieceAt().color == b.color ){p = false;}
+            if(next.getPieceFrom().color == b.color ){p = false;}
             else{p = true;}
             return p;
         }
@@ -116,7 +116,7 @@ public class ValidMoves {
                 return false;
             }
         }
-        if(next.pieceAt().color == b.color){return false;}
+        if(next.getPieceFrom().color == b.color){return false;}
 
         return  true;
     }
@@ -155,7 +155,7 @@ public class ValidMoves {
                 }
             }
         }
-        if(next.pieceAt().color == r.color){return false;}
+        if(next.getPieceFrom().color == r.color){return false;}
         return true;
     }
 
@@ -174,4 +174,5 @@ public class ValidMoves {
         if(validRook(q,next) || validBishop(q,next)){return true;}
         return false;
     }
+
 }

@@ -86,6 +86,10 @@ class Null extends Piece{
         super(Color.NULL, Pieces.NULL, true, currentPosition);
     }
 
+    @Override
+    boolean legalMove(Position p){
+         return false;
+    }
 }
 
 
