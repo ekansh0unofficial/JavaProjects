@@ -1,6 +1,6 @@
 package JavaProjects.Chess;
 
-public class Capture {
+public class Movement {
 
     static void pawnCapture(Pawn p , Position next){
         if(p.legalMove(next)){
@@ -25,26 +25,49 @@ public class Capture {
         }
     }
 
-    static void bishopCapture(Bishop b , Position next){
-            if(b.legalMove(next)){
-                if(b.color == Color.BLACK){
+    static void pieceCapture(Piece p , Position next){
+            if(p.legalMove(next)){
+                if(p.color == Color.BLACK){
                     if(next.getPieceFrom().color == Color.WHITE){
-                        Piece n = new Null(b.currentPosition);
-                        b.currentPosition.setPieceAt(n);
-                        next.setPieceAt(b);
+                        Piece n = new Null(p.currentPosition);
+                        p.currentPosition.setPieceAt(n);
+                        next.setPieceAt(p);
                     }
                 }
-                if(b.color == Color.WHITE){
+                if(p.color == Color.WHITE){
                     if(next.getPieceFrom().color == Color.BLACK){
-                        Piece n = new Null(b.currentPosition);
-                        b.currentPosition.setPieceAt(n);
-                        next.setPieceAt(b);
+                        Piece n = new Null(p.currentPosition);
+                        p.currentPosition.setPieceAt(n);
+                        next.setPieceAt(p);
                     }
                 }
             }
     }
 
-    static void rookCapture(Rook r , Position next){
-
+    static void movePawn(Pawn p , Position next){
+        if(p.legalMove(next)){
+            if((next.y == p.currentPosition.y + 1 || next.y == p.currentPosition.y - 1) && next.x == p.currentPosition.x + 1){
+                pawnCapture(p , next);
+            }
+        }
+        else{
+            Piece n = next.getPieceFrom();
+            p.currentPosition.setPieceAt(n);
+            next.setPieceAt(p);
+        }
     }
+
+    static void movePiece(Piece p , Position next){
+        if(p.legalMove(next)){
+            if(!next.pieceExist()){
+                Piece n = next.getPieceFrom();
+                p.currentPosition.setPieceAt(n);
+                next.setPieceAt(p);
+            }
+            else{
+                pieceCapture(p, next);
+            }
+        }
+    }
+
 }

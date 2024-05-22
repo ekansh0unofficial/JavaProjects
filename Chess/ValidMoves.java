@@ -121,7 +121,7 @@ public class ValidMoves {
         return  true;
     }
 
-    static boolean validRook(Piece r , Position next){
+      static boolean validRook(Piece r , Position next){
         if (next.x >= 8 || next.x < 0 || next.y >= 8 || next.y < 0) {
             return false;
         }
@@ -174,5 +174,7 @@ public class ValidMoves {
         if(validRook(q,next) || validBishop(q,next)){return true;}
         return false;
     }
+
+
 
 }
