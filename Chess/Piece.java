@@ -66,8 +66,13 @@ class Rook extends Piece{
 }
 
 class King extends Piece{
+
+    boolean check = false;
     public King(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
+    }
+    boolean legalMove(Position p){
+        return false;
     }
 }
 
@@ -90,6 +95,7 @@ class Null extends Piece{
     boolean legalMove(Position p){
          return false;
     }
+
 }
 
 
