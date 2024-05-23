@@ -68,9 +68,13 @@ class Rook extends Piece{
 class King extends Piece{
 
     boolean check = false;
+    boolean checkMate = false;
     public King(Color color, Pieces type, boolean alive, Position currentPosition) {
         super(color, type, alive, currentPosition);
     }
+    void setCheck(boolean b){this.check = b;}
+    void getCheckStatus(boolean b){this.check = b;}
+    void setCheckMate(boolean b){this.checkMate =b; }
     boolean legalMove(Position p){
         return false;
     }
