@@ -10,7 +10,7 @@ public class ValidMoves {
             return false;
         } else {
             if (p.color == Color.BLACK ) {
-
+                if(PieceData.kingB)
                 //handles when pawn at initial position
                 if (p.currentPosition.isEqual(p.initial_position) && emptyPawnPath(p , next)) {
                     return (next.x == p.currentPosition.x + 1 || next.x == p.currentPosition.x + 2) && next.y == p.currentPosition.y;
@@ -175,6 +175,18 @@ public class ValidMoves {
         return false;
     }
 
-
+    static boolean isCheck(Piece p){
+        if(p.color == Color.BLACK){
+            if(p.legalMove(PieceArray.whiteKing())){
+                    return true;
+            }
+        }
+        if(p.color == Color.WHITE){
+            if(p.legalMove(PieceArray.blackKing())){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
