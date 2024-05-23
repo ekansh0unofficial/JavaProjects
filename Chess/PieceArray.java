@@ -2,56 +2,77 @@ package JavaProjects.Chess;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 public class PieceArray {
 
         static Piece[][] chessBoard = new Piece[8][8];
         static ArrayList<Piece> blackPieces = getAllBlackPieces();
         static ArrayList<Piece> whitePieces = getAllWhitePieces();
         void initialiseArray(){
+=======
 
-                chessBoard[0][0] = new Rook(Color.BLACK , Pieces.ROOK , true , new Position(0,0));
-                chessBoard[0][1] = new Knight(Color.BLACK , Pieces.KNIGHT , true , new Position(0,1));
-                chessBoard[0][2] = new Bishop(Color.BLACK , Pieces.BISHOP , true , new Position(0,2 ));
-                chessBoard[0][3] = new Queen(Color.BLACK , Pieces.QUEEN , true , new Position(0,3));
-                chessBoard[0][4] = new King(Color.BLACK , Pieces.KING , true , new Position(0,4));
-                chessBoard[0][5] = new Bishop(Color.BLACK , Pieces.BISHOP , true , new Position(0,5));
-                chessBoard[0][6] = new Knight(Color.BLACK , Pieces.KNIGHT , true , new Position(0,6));
-                chessBoard[0][7] = new Rook(Color.BLACK , Pieces.ROOK , true , new Position(0,7));
+public class PieceArray {
 
-                for (int i = 0;   i <8; i++) {
-                        chessBoard[1][i] = new Pawn(Color.BLACK, Pieces.PAWN, true, new Position(1, i));
+        static Piece[][] chessBoard = new Piece[8][8];
+        static final ArrayList<Piece> blackPiece = getAllBlackPieces();
+        static final  ArrayList<Piece> whitePiece = getAllWhitePieces();
+        static Position kingBlackPosition = new Position(0,4);
+        static Position kingWhitePosition = new Position(7,4);
+
+        void initialiseArray() {
+>>>>>>> 2cea79f965732c309cb96362f462115efcc386d5
+
+                chessBoard[0][0] = PieceData.rookBL;
+                chessBoard[0][1] = PieceData.knightBL;
+                chessBoard[0][2] = PieceData.bishopBL;
+                chessBoard[0][3] = PieceData.queenB;
+                chessBoard[0][4] = PieceData.kingB;
+                chessBoard[0][5] = PieceData.bishopBR;
+                chessBoard[0][6] = PieceData.knightBR;
+                chessBoard[0][7] = PieceData.rookBR;
+
+                for (int i = 0; i < 8; i++) {
+                        chessBoard[1][i] = PieceData.pawnB[i];
                 }
 
-                for(int i = 2 ; i<6 ; i++ ){
+                for (int i = 2; i < 6; i++) {
                         for (int j = 0; j < 8; j++) {
-                                chessBoard[i][j] = new Null(new Position(i,j));
+                                chessBoard[i][j] = new Null(new Position(i, j));
                         }
                 }
 
-                for (int i = 6;   i <8; i++) {
-                        chessBoard[1][i] = new Pawn(Color.WHITE, Pieces.PAWN, true, new Position(6, i));
+                for (int i = 6; i < 8; i++) {
+                        chessBoard[1][i] = PieceData.pawnW[i];
                 }
 
-                chessBoard[7][0] = new Rook(Color.WHITE , Pieces.ROOK , true , new Position(7,0));
-                chessBoard[7][1] = new Knight(Color.WHITE , Pieces.KNIGHT , true , new Position(7,1));
-                chessBoard[7][2] = new Bishop(Color.WHITE , Pieces.BISHOP , true , new Position(7,2 ));
-                chessBoard[7][3] = new Queen(Color.WHITE , Pieces.QUEEN , true , new Position(7,3));
-                chessBoard[7][4] = new King(Color.WHITE , Pieces.KING , true , new Position(7,4));
-                chessBoard[7][5] = new Bishop(Color.WHITE , Pieces.BISHOP , true , new Position(7,5));
-                chessBoard[7][6] = new Knight(Color.WHITE , Pieces.KNIGHT , true , new Position(7,6));
-                chessBoard[7][7] = new Rook(Color.WHITE, Pieces.ROOK , true , new Position(7,7));
+                chessBoard[7][0] = PieceData.rookWL;
+                chessBoard[7][1] = PieceData.knightWL;
+                chessBoard[7][2] = PieceData.bishopWL;
+                chessBoard[7][3] = PieceData.queenW;
+                chessBoard[7][4] = PieceData.kingW;
+                chessBoard[7][5] = PieceData.bishopWR;
+                chessBoard[7][6] = PieceData.knightWR;
+                chessBoard[7][7] = PieceData.rookWR;
         }
 
         public static ArrayList<Piece> getAllBlackPieces() {
                 ArrayList<Piece> blackPieces = new ArrayList<>();
 
                 for (int row = 0; row < 2; row++) {
+<<<<<<< HEAD
                         for (int col = 0; col < 8; col++) {
                                 Piece piece = chessBoard[row][col];
                                 blackPieces.add(piece);
                         }
                 }
 
+=======
+                    for (int col = 0; col < 8; col++) {
+                        Piece piece = chessBoard[row][col];
+                        blackPieces.add(piece);
+                    }
+                }
+>>>>>>> 2cea79f965732c309cb96362f462115efcc386d5
                 return blackPieces;
         }
         public static ArrayList<Piece> getAllWhitePieces() {
@@ -66,8 +87,29 @@ public class PieceArray {
 
                 return whitePieces;
         }
+<<<<<<< HEAD
 }
 
 
 
 
+=======
+
+        static public void updateWhiteKing(Position p){
+                kingWhitePosition =p;
+        }
+
+        static public void updateBlackKing(Position p){
+                kingBlackPosition =p;
+        }
+
+        static public Position whiteKing(){
+                return kingWhitePosition;
+        }
+
+        static public Position blackKing(){
+                return kingWhitePosition;
+        }
+
+}
+>>>>>>> 2cea79f965732c309cb96362f462115efcc386d5

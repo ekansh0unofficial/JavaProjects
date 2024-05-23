@@ -1,5 +1,8 @@
 package JavaProjects.Chess;
 
+import static JavaProjects.Chess.ValidMoves.isCheck;
+import JavaProjects.Chess.PieceArray;
+
 public class Movement {
 
     static void pawnCapture(Pawn p , Position next){
@@ -63,11 +66,13 @@ public class Movement {
                 Piece n = next.getPieceFrom();
                 p.currentPosition.setPieceAt(n);
                 next.setPieceAt(p);
+                if(isCheck(p)){if(p.color == Color.BLACK){}}
             }
             else{
                 pieceCapture(p, next);
             }
         }
     }
+
 
 }
