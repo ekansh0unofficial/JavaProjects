@@ -1,9 +1,12 @@
 package JavaProjects.Chess;
 
+import java.util.ArrayList;
+
 public class PieceArray {
 
         static Piece[][] chessBoard = new Piece[8][8];
-
+        static ArrayList<Piece> blackPieces = getAllBlackPieces();
+        static ArrayList<Piece> whitePieces = getAllWhitePieces();
         void initialiseArray(){
 
                 chessBoard[0][0] = new Rook(Color.BLACK , Pieces.ROOK , true , new Position(0,0));
@@ -38,4 +41,33 @@ public class PieceArray {
                 chessBoard[7][6] = new Knight(Color.WHITE , Pieces.KNIGHT , true , new Position(7,6));
                 chessBoard[7][7] = new Rook(Color.WHITE, Pieces.ROOK , true , new Position(7,7));
         }
+
+        public static ArrayList<Piece> getAllBlackPieces() {
+                ArrayList<Piece> blackPieces = new ArrayList<>();
+
+                for (int row = 0; row < 2; row++) {
+                        for (int col = 0; col < 8; col++) {
+                                Piece piece = chessBoard[row][col];
+                                blackPieces.add(piece);
+                        }
+                }
+
+                return blackPieces;
+        }
+        public static ArrayList<Piece> getAllWhitePieces() {
+                ArrayList<Piece> whitePieces = new ArrayList<>();
+
+                for (int row = 6; row < 8; row++) {
+                        for (int col = 0; col < 8; col++) {
+                                Piece piece = chessBoard[row][col];
+                                whitePieces.add(piece);
+                        }
+                }
+
+                return whitePieces;
+        }
 }
+
+
+
+
