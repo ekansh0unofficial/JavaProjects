@@ -2,6 +2,14 @@ package JavaProjects.Chess;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+public class PieceArray {
+
+        static Piece[][] chessBoard = new Piece[8][8];
+        static ArrayList<Piece> blackPieces = getAllBlackPieces();
+        static ArrayList<Piece> whitePieces = getAllWhitePieces();
+        void initialiseArray(){
+=======
 
 public class PieceArray {
 
@@ -12,6 +20,7 @@ public class PieceArray {
         static Position kingWhitePosition = new Position(7,4);
 
         void initialiseArray() {
+>>>>>>> 2cea79f965732c309cb96362f462115efcc386d5
 
                 chessBoard[0][0] = PieceData.rookBL;
                 chessBoard[0][1] = PieceData.knightBL;
@@ -50,11 +59,20 @@ public class PieceArray {
                 ArrayList<Piece> blackPieces = new ArrayList<>();
 
                 for (int row = 0; row < 2; row++) {
+<<<<<<< HEAD
+                        for (int col = 0; col < 8; col++) {
+                                Piece piece = chessBoard[row][col];
+                                blackPieces.add(piece);
+                        }
+                }
+
+=======
                     for (int col = 0; col < 8; col++) {
                         Piece piece = chessBoard[row][col];
                         blackPieces.add(piece);
                     }
                 }
+>>>>>>> 2cea79f965732c309cb96362f462115efcc386d5
                 return blackPieces;
         }
         public static ArrayList<Piece> getAllWhitePieces() {
@@ -69,6 +87,13 @@ public class PieceArray {
 
                 return whitePieces;
         }
+<<<<<<< HEAD
+}
+
+
+
+
+=======
 
         static public void updateWhiteKing(Position p){
                 kingWhitePosition =p;
@@ -87,3 +112,4 @@ public class PieceArray {
         }
 
 }
+>>>>>>> 2cea79f965732c309cb96362f462115efcc386d5
